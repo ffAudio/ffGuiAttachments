@@ -2,7 +2,7 @@
     juce module: ff_gui_attachments
     author:      Daniel Walz
 
-    started:     Feb, 2016
+    started:     June, 2016
     
 *******************************************************************************/
 
