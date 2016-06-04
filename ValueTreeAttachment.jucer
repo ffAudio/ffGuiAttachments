@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="qAWDnN" name="ValueTreeAttachment" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.yourcompany.ValueTreeAttachment" includeBinaryInAppConfig="1"
+              jucerVersion="4.2.1">
+  <MAINGROUP id="V1CTti" name="ValueTreeAttachment">
+    <GROUP id="{5D93FF2E-D183-EF37-B0AF-C2C041BF63C9}" name="Source">
+      <FILE id="izIWSJ" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="wk9PXa" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="u303Es" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="ValueTreeAttachment"
+                       osxCompatibility="10.7 SDK" cppLanguageStandard="c++11" cppLibType="libc++"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="ValueTreeAttachment"
+                       osxCompatibility="10.7 SDK" cppLanguageStandard="c++11" cppLibType="libc++"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../juce/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../juce/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../juce/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../juce/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../juce/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../juce/JUCE/modules"/>
+        <MODULEPATH id="ff_gui_attachments" path="../ff_gui_attachments"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="ff_gui_attachments" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
