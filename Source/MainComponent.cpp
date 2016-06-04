@@ -38,11 +38,34 @@ MainContentComponent::MainContentComponent()
     addAndMakeVisible (combo);
     addAndMakeVisible (combo1);
 
+    juce::Array<juce::Button*> btns;
+
+    ToggleButton* b = new ToggleButton ("Anything");
+    b->setComponentID ("Anything");
+    b->setRadioGroupId (100);
+    buttons.add (b);
+    btns.add (b);
+    addAndMakeVisible (b);
+    b = new ToggleButton ("Something");
+    b->setComponentID ("Something");
+    b->setRadioGroupId (100);
+    buttons.add (b);
+    btns.add (b);
+    addAndMakeVisible (b);
+    b = new ToggleButton ("Nothing");
+    b->setComponentID ("Nothing");
+    b->setRadioGroupId (100);
+    buttons.add (b);
+    btns.add (b);
+    addAndMakeVisible (b);
+
     attachment = new ValueTreeSliderAttachment (tree, slider, "number");
     attachment2 = new ValueTreeSliderAttachment (tree, slider2, "number");
 
     comboAttachment = new ValueTreeComboBoxAttachment (select, combo, "name", true);
     comboAttachment1 = new ValueTreeComboBoxAttachment (select, combo1, "name", true);
+
+    buttonGroupAttachment = new ValueTreeRadioButtonGroupAttachment (select, btns, "name", true);
 
     setSize (600, 400);
 }
@@ -53,7 +76,7 @@ MainContentComponent::~MainContentComponent()
 
 void MainContentComponent::paint (Graphics& g)
 {
-    g.fillAll (Colour (0xff001F36));
+    g.fillAll (Colours::lightcoral);
 
     g.setFont (Font (16.0f));
     g.setColour (Colours::white);
@@ -67,4 +90,8 @@ void MainContentComponent::resized()
 
     combo->setBounds (5, 70, 150, 20);
     combo1->setBounds (5, 100, 150, 20);
+
+    for (int i=0; i < buttons.size(); ++i) {
+        buttons.getUnchecked (i)->setBounds (160, 70 + i * 30, 150, 25);
+    }
 }

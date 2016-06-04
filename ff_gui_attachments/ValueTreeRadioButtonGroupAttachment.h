@@ -47,14 +47,30 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+
+/*
+ ==============================================================================
+
+ The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync 
+ with a leaf in a ValueTree.
+ If selectSubNodes is set to true, for the selected radio button, a property 
+ selected is set to 1 in the node having the same componentID as the given 
+ property in the attachment.
+
+ ==============================================================================
+ */
 class ValueTreeRadioButtonGroupAttachment : public juce::ValueTree::Listener,
                                             public juce::Button::Listener
 {
 public:
     ValueTreeRadioButtonGroupAttachment (juce::ValueTree& _tree,
-                                         juce::Array<juce::Button*> _buttons,
-                                         juce::Identifier& _property,
+                                         juce::Array<juce::Button*>& _buttons,
+                                         juce::Identifier _property,
                                          bool _selectSubNodes)
+    :   tree (_tree),
+        property (_property),
+        selectSubNodes (_selectSubNodes),
+        updating (false)
     {
 
         for (int i=0; i < _buttons.size(); ++i) {
@@ -65,18 +81,86 @@ public:
             }
         }
 
+        if (tree.getNumChildren() < 1) {
+            for (int i=0; i < _buttons.size(); ++i) {
+                juce::Button* b = _buttons.getUnchecked (i);
+                juce::ValueTree child = juce::ValueTree ("option");
+                child.setProperty (property, b->getComponentID(), nullptr);
+                tree.addChild (child, -1, nullptr);
+            }
+        }
+
         tree.addListener (this);
     }
 
-    void buttonStateChanged (juce::Button *buttonThatHasChanged)
+    void buttonClicked (juce::Button*) override {}
+
+    void buttonStateChanged (juce::Button *buttonThatHasChanged) override
     {
+        if (selectSubNodes) {
+            if (buttonThatHasChanged->getToggleState()) {
+                for (int i=0; i < tree.getNumChildren(); ++i) {
+                    juce::ValueTree child = tree.getChild (i);
+                    if (child.hasProperty (property)) {
+                        if (child.getProperty (property) == buttonThatHasChanged->getComponentID()) {
+                            child.setProperty ("selected", 1, nullptr);
+                        }
+                        else {
+                            child.removeProperty ("selected", nullptr);
+                        }
+                    }
+                }
+            }
+        }
 
     }
+
+    void valueTreePropertyChanged (juce::ValueTree &treeWhosePropertyHasChanged, const juce::Identifier &_property) override
+    {
+        if (! updating) {
+            updating = true;
+            if (selectSubNodes) {
+                if (treeWhosePropertyHasChanged.getParent() == tree
+                    && _property == juce::Identifier ("selected"))
+                {
+                    if (treeWhosePropertyHasChanged.hasProperty ("selected")) {
+                        juce::String selected = treeWhosePropertyHasChanged.getProperty (property);
+                        for (int i=0; i < buttons.size(); ++i) {
+                            juce::Component::SafePointer<juce::Button> b = buttons.getUnchecked (i);
+                            if (b->getComponentID() == selected) {
+                                b->setToggleState (true, juce::sendNotification);
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                if (treeWhosePropertyHasChanged == tree && _property == property) {
+                    juce::String selected = tree.getProperty (property, "");
+                    for (int i=0; i < buttons.size(); ++i) {
+                        juce::Component::SafePointer<juce::Button> b = buttons.getUnchecked (i);
+                        if (b->getComponentID() == selected) {
+                            b->setToggleState (true, juce::sendNotification);
+                        }
+                    }
+                }
+            }
+            updating = false;
+        }
+    }
+
+    void valueTreeChildAdded (juce::ValueTree &parentTree, juce::ValueTree &childWhichHasBeenAdded) override {}
+    void valueTreeChildRemoved (juce::ValueTree &parentTree, juce::ValueTree &childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {}
+    void valueTreeChildOrderChanged (juce::ValueTree &parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override {}
+    void valueTreeParentChanged (juce::ValueTree &treeWhoseParentHasChanged) override {}
+    void valueTreeRedirected (juce::ValueTree &treeWhichHasBeenChanged) override {}
 
 private:
     juce::ValueTree tree;
     juce::Array<juce::Component::SafePointer<juce::Button> > buttons;
     juce::Identifier property;
+    bool selectSubNodes;
+    bool updating;
 
 };
 

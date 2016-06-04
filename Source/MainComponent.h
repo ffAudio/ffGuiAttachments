@@ -40,6 +40,8 @@ private:
     ScopedPointer<ComboBox> combo;
     ScopedPointer<ComboBox> combo1;
 
+    OwnedArray<ToggleButton>  buttons;
+
     ScopedPointer<ValueTreeSliderAttachment> attachment;
     ScopedPointer<ValueTreeSliderAttachment> attachment2;
     ScopedPointer<ValueTreeComboBoxAttachment> comboAttachment;
