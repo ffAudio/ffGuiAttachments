@@ -62,8 +62,16 @@ class ValueTreeComboBoxAttachment : public juce::ComboBox::Listener,
                                     public juce::ValueTree::Listener
 {
 public:
-    ValueTreeComboBoxAttachment (juce::ValueTree& _tree, juce::ComboBox* _comboBox, juce::Identifier _property, bool _selectSubNodes)
-    : tree (_tree), property (_property), selectSubNodes (_selectSubNodes), updating (false)
+    ValueTreeComboBoxAttachment (juce::ValueTree& _tree,
+                                 juce::ComboBox* _comboBox,
+                                 juce::Identifier _property,
+                                 bool _selectSubNodes,
+                                 juce::UndoManager* _undoMgr = nullptr)
+    :   tree (_tree),
+        property (_property),
+        selectSubNodes (_selectSubNodes),
+        undoMgr (_undoMgr),
+        updating (false)
     {
         // Don't attach an invalid valuetree!
         jassert (tree.isValid());
@@ -77,7 +85,7 @@ public:
                 comboBox->setSelectedId (tree.getProperty(property));
             }
             else {
-                tree.setProperty (property, comboBox->getSelectedId(), nullptr);
+                tree.setProperty (property, comboBox->getSelectedId(), undoMgr);
             }
         }
 
@@ -96,15 +104,15 @@ public:
                     const int idx = comboBox->getSelectedItemIndex ();
                     for (int i=0; i < tree.getNumChildren(); ++i) {
                         if (i == idx) {
-                            tree.getChild (i).setProperty ("selected", 1, nullptr);
+                            tree.getChild (i).setProperty ("selected", 1, undoMgr);
                         }
                         else {
-                            tree.getChild (i).removeProperty ("selected", nullptr);
+                            tree.getChild (i).removeProperty ("selected", undoMgr);
                         }
                     }
                 }
                 else {
-                    tree.setProperty (property, comboBox->getSelectedItemIndex (), nullptr);
+                    tree.setProperty (property, comboBox->getSelectedItemIndex (), undoMgr);
                 }
             }
             updating = false;
@@ -170,6 +178,7 @@ private:
     juce::Component::SafePointer<juce::ComboBox>    comboBox;
     juce::Identifier                                property;
     bool                                            selectSubNodes;
+    juce::UndoManager*                              undoMgr;
     bool                                            updating;
 };
 

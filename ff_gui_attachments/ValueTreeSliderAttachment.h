@@ -51,8 +51,12 @@ class ValueTreeSliderAttachment : public juce::Slider::Listener,
                                   public juce::ValueTree::Listener
 {
 public:
-    ValueTreeSliderAttachment (juce::ValueTree& _tree, juce::Slider* _slider, juce::Identifier _property)
-    : tree (_tree), property (_property), updating (false)
+    ValueTreeSliderAttachment (juce::ValueTree& _tree,
+                               juce::Slider* _slider,
+                               juce::Identifier _property,
+                               juce::UndoManager* _undoMgr = nullptr
+)
+    : tree (_tree), property (_property), undoMgr (_undoMgr), updating (false)
     {
         // Don't attach an invalid valuetree!
         jassert (tree.isValid());
@@ -62,7 +66,7 @@ public:
             slider->setValue (tree.getProperty(property));
         }
         else {
-            tree.setProperty (property, slider->getValue(), nullptr);
+            tree.setProperty (property, slider->getValue(), undoMgr);
         }
 
         tree.addListener (this);
@@ -74,7 +78,7 @@ public:
         if (! updating) {
             updating = true;
             if (slider == _slider) {
-                tree.setProperty (property, slider->getValue(), nullptr);
+                tree.setProperty (property, slider->getValue(), undoMgr);
             }
             updating = false;
         }
@@ -101,6 +105,7 @@ private:
     juce::ValueTree                             tree;
     juce::Component::SafePointer<juce::Slider>  slider;
     juce::Identifier                            property;
+    juce::UndoManager*                          undoMgr;
     bool                                        updating;
 };
 

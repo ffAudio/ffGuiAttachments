@@ -66,10 +66,12 @@ public:
     ValueTreeRadioButtonGroupAttachment (juce::ValueTree& _tree,
                                          juce::Array<juce::Button*>& _buttons,
                                          juce::Identifier _property,
-                                         bool _selectSubNodes)
+                                         bool _selectSubNodes,
+                                         juce::UndoManager* _undoMgr = nullptr)
     :   tree (_tree),
         property (_property),
         selectSubNodes (_selectSubNodes),
+        undoMgr (_undoMgr),
         updating (false)
     {
 
@@ -85,8 +87,8 @@ public:
             for (int i=0; i < _buttons.size(); ++i) {
                 juce::Button* b = _buttons.getUnchecked (i);
                 juce::ValueTree child = juce::ValueTree ("option");
-                child.setProperty (property, b->getComponentID(), nullptr);
-                tree.addChild (child, -1, nullptr);
+                child.setProperty (property, b->getComponentID(), undoMgr);
+                tree.addChild (child, -1, undoMgr);
             }
         }
 
@@ -103,10 +105,10 @@ public:
                     juce::ValueTree child = tree.getChild (i);
                     if (child.hasProperty (property)) {
                         if (child.getProperty (property) == buttonThatHasChanged->getComponentID()) {
-                            child.setProperty ("selected", 1, nullptr);
+                            child.setProperty ("selected", 1, undoMgr);
                         }
                         else {
-                            child.removeProperty ("selected", nullptr);
+                            child.removeProperty ("selected", undoMgr);
                         }
                     }
                 }
@@ -160,6 +162,7 @@ private:
     juce::Array<juce::Component::SafePointer<juce::Button> > buttons;
     juce::Identifier property;
     bool selectSubNodes;
+    juce::UndoManager* undoMgr;
     bool updating;
 
 };
