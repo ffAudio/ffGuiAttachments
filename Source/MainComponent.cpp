@@ -24,6 +24,7 @@ MainContentComponent::MainContentComponent()
     select.addChild (option1, 0, nullptr);
     ValueTree option2 = ValueTree ("Option");
     option2.setProperty ("name", "Something", nullptr);
+    option2.setProperty ("selected", 1, nullptr);
     select.addChild (option2, 1, nullptr);
     ValueTree option3 = ValueTree ("Option");
     option3.setProperty ("name", "Nothing", nullptr);

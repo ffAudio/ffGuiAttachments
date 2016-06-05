@@ -170,6 +170,9 @@ private:
         for (int i=0; i < tree.getNumChildren(); ++i) {
             juce::ValueTree child = tree.getChild (i);
             comboBox->addItem (child.getProperty (property, child.getType().toString()), 100 + i);
+            if (child.hasProperty ("selected") && static_cast<int> (child.getProperty ("selected")) != 0) {
+                comboBox->setSelectedId (100+i);
+            }
         }
     }
 

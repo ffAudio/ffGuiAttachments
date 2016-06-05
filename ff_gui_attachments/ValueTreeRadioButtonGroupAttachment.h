@@ -84,11 +84,27 @@ public:
         }
 
         if (tree.getNumChildren() < 1) {
-            for (int i=0; i < _buttons.size(); ++i) {
-                juce::Button* b = _buttons.getUnchecked (i);
+            for (int i=0; i < buttons.size(); ++i) {
+                juce::Button* b = buttons.getUnchecked (i);
                 juce::ValueTree child = juce::ValueTree ("option");
                 child.setProperty (property, b->getComponentID(), undoMgr);
                 tree.addChild (child, -1, undoMgr);
+            }
+        }
+        else {
+            for (int i=0; i < buttons.size(); ++i) {
+                juce::Button* b = buttons.getUnchecked (i);
+                for (int k=0; k < tree.getNumChildren(); ++k) {
+                    juce::ValueTree child = tree.getChild (k);
+                    if (child.hasProperty (property) && child.getProperty (property) == b->getComponentID()) {
+                        if (child.hasProperty ("selected") && static_cast<int> (child.getProperty ("selected")) != 0) {
+                            b->setToggleState (true, juce::dontSendNotification);
+                        }
+                        else {
+                            b->setToggleState (false, juce::dontSendNotification);
+                        }
+                    }
+                }
             }
         }
 
