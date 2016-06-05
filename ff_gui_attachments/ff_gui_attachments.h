@@ -54,6 +54,10 @@
 #include <juce_data_structures/juce_data_structures.h>
 #include <juce_gui_basics/juce_gui_basics.h>
 
+namespace FF {
+    static juce::Identifier propSelected ("selected");
+};
+
 #include "ValueTreeSliderAttachment.h"
 #include "ValueTreeComboBoxAttachment.h"
 #include "ValueTreeRadioButtonGroupAttachment.h"

@@ -104,10 +104,10 @@ public:
                     const int idx = comboBox->getSelectedItemIndex ();
                     for (int i=0; i < tree.getNumChildren(); ++i) {
                         if (i == idx) {
-                            tree.getChild (i).setProperty ("selected", 1, undoMgr);
+                            tree.getChild (i).setProperty (FF::propSelected, 1, undoMgr);
                         }
                         else {
-                            tree.getChild (i).removeProperty ("selected", undoMgr);
+                            tree.getChild (i).removeProperty (FF::propSelected, undoMgr);
                         }
                     }
                 }
@@ -126,8 +126,8 @@ public:
             if (selectSubNodes) {
                 if (treeWhosePropertyHasChanged.getParent() == tree) {
                     for (int i=0; i < tree.getNumChildren(); ++i) {
-                        if (tree.getChild (i).hasProperty ("selected")
-                            && static_cast<int> (tree.getChild (i).getProperty ("selected")) > 0)
+                        if (tree.getChild (i).hasProperty (FF::propSelected)
+                            && static_cast<int> (tree.getChild (i).getProperty (FF::propSelected)) > 0)
                         {
                             comboBox->setSelectedItemIndex (i);
                         }
@@ -170,12 +170,11 @@ private:
         for (int i=0; i < tree.getNumChildren(); ++i) {
             juce::ValueTree child = tree.getChild (i);
             comboBox->addItem (child.getProperty (property, child.getType().toString()), 100 + i);
-            if (child.hasProperty ("selected") && static_cast<int> (child.getProperty ("selected")) != 0) {
+            if (child.hasProperty (FF::propSelected) && static_cast<int> (child.getProperty (FF::propSelected)) != 0) {
                 comboBox->setSelectedId (100+i);
             }
         }
     }
-
 
     juce::ValueTree                                 tree;
     juce::Component::SafePointer<juce::ComboBox>    comboBox;
@@ -184,7 +183,6 @@ private:
     juce::UndoManager*                              undoMgr;
     bool                                            updating;
 };
-
 
 
 #endif  // VALUETREECOMBOBOXATTACHMENT_H_INCLUDED

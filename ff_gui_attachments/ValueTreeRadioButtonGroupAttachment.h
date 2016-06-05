@@ -97,7 +97,7 @@ public:
                 for (int k=0; k < tree.getNumChildren(); ++k) {
                     juce::ValueTree child = tree.getChild (k);
                     if (child.hasProperty (property) && child.getProperty (property) == b->getComponentID()) {
-                        if (child.hasProperty ("selected") && static_cast<int> (child.getProperty ("selected")) != 0) {
+                        if (child.hasProperty (FF::propSelected) && static_cast<int> (child.getProperty (FF::propSelected)) != 0) {
                             b->setToggleState (true, juce::dontSendNotification);
                         }
                         else {
@@ -121,10 +121,10 @@ public:
                     juce::ValueTree child = tree.getChild (i);
                     if (child.hasProperty (property)) {
                         if (child.getProperty (property) == buttonThatHasChanged->getComponentID()) {
-                            child.setProperty ("selected", 1, undoMgr);
+                            child.setProperty (FF::propSelected, 1, undoMgr);
                         }
                         else {
-                            child.removeProperty ("selected", undoMgr);
+                            child.removeProperty (FF::propSelected, undoMgr);
                         }
                     }
                 }
@@ -139,9 +139,9 @@ public:
             updating = true;
             if (selectSubNodes) {
                 if (treeWhosePropertyHasChanged.getParent() == tree
-                    && _property == juce::Identifier ("selected"))
+                    && _property == juce::Identifier (FF::propSelected))
                 {
-                    if (treeWhosePropertyHasChanged.hasProperty ("selected")) {
+                    if (treeWhosePropertyHasChanged.hasProperty (FF::propSelected)) {
                         juce::String selected = treeWhosePropertyHasChanged.getProperty (property);
                         for (int i=0; i < buttons.size(); ++i) {
                             juce::Component::SafePointer<juce::Button> b = buttons.getUnchecked (i);
