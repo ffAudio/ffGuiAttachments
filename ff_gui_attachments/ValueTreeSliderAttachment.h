@@ -54,13 +54,25 @@ public:
     ValueTreeSliderAttachment (juce::ValueTree& _tree,
                                juce::Slider* _slider,
                                juce::Identifier _property,
-                               juce::UndoManager* _undoMgr = nullptr
-)
-    : tree (_tree), property (_property), undoMgr (_undoMgr), updating (false)
+                               juce::UndoManager* _undoMgr = nullptr,
+                               juce::Identifier _propMinimum = FF::propMinimumDefault,
+                               juce::Identifier _propMaximum = FF::propMaximumDefault,
+                               juce::Identifier _propInterval = FF::propIntervalDefault)
+    :   tree (_tree),
+        property (_property),
+        undoMgr (_undoMgr),
+        propMinimum (_propMinimum),
+        propMaximum (_propMaximum),
+        propInterval (_propInterval),
+        updating (false)
     {
         // Don't attach an invalid valuetree!
         jassert (tree.isValid());
         slider = _slider;
+
+        if (tree.hasProperty (propMinimum) && tree.hasProperty (propMaximum)) {
+            slider->setRange (tree.getProperty (propMinimum), tree.getProperty (propMaximum), tree.getProperty (propInterval, 0));
+        }
 
         if (tree.hasProperty (property)) {
             slider->setValue (tree.getProperty(property));
@@ -88,9 +100,17 @@ public:
     {
         if (! updating) {
             updating = true;
-            if (treeWhosePropertyHasChanged == tree && _property == property && slider) {
-                slider->setValue (tree.getProperty (property));
+            if (treeWhosePropertyHasChanged == tree && slider) {
+                if (_property == property) {
+                    slider->setValue (tree.getProperty (property));
+                }
+                else if (property == propMinimum || property == propMaximum || property == propInterval) {
+                    if (tree.hasProperty (propMinimum) && tree.hasProperty (propMaximum)) {
+                        slider->setRange (tree.getProperty (propMinimum), tree.getProperty (propMaximum), tree.getProperty (propInterval, 0));
+                    }
+                }
             }
+
             updating = false;
         }
     }
@@ -106,6 +126,9 @@ private:
     juce::Component::SafePointer<juce::Slider>  slider;
     juce::Identifier                            property;
     juce::UndoManager*                          undoMgr;
+    juce::Identifier                            propMinimum;
+    juce::Identifier                            propMaximum;
+    juce::Identifier                            propInterval;
     bool                                        updating;
 };
 

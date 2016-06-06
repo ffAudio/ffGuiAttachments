@@ -55,7 +55,10 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 
 namespace FF {
-    static juce::Identifier propSelected ("selected");
+    static juce::Identifier propSelected        ("selected");
+    static juce::Identifier propMinimumDefault  ("minimum");
+    static juce::Identifier propMaximumDefault  ("maximum");
+    static juce::Identifier propIntervalDefault ("interval");
 };
 
 #include "ValueTreeSliderAttachment.h"
