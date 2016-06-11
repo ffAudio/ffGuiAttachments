@@ -125,11 +125,16 @@ public:
             updating = true;
             if (selectSubNodes) {
                 if (treeWhosePropertyHasChanged.getParent() == tree) {
-                    for (int i=0; i < tree.getNumChildren(); ++i) {
-                        if (tree.getChild (i).hasProperty (FF::propSelected)
-                            && static_cast<int> (tree.getChild (i).getProperty (FF::propSelected)) > 0)
-                        {
-                            comboBox->setSelectedItemIndex (i);
+                    if (_property == property) {
+                        updateChoices();
+                    }
+                    else if (_property == FF::propSelected) {
+                        for (int i=0; i < tree.getNumChildren(); ++i) {
+                            if (tree.getChild (i).hasProperty (FF::propSelected)
+                                && static_cast<int> (tree.getChild (i).getProperty (FF::propSelected)) > 0)
+                            {
+                                comboBox->setSelectedItemIndex (i);
+                            }
                         }
                     }
                 }
