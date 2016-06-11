@@ -64,6 +64,7 @@ namespace FF {
 #include "ValueTreeSliderAttachment.h"
 #include "ValueTreeComboBoxAttachment.h"
 #include "ValueTreeRadioButtonGroupAttachment.h"
+#include "ValueTreeLabelAttachment.h"
 
 #endif /* FF_GUI_ATTACHMENTS_H_INCLUDED */
 
