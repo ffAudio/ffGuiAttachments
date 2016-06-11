@@ -42,11 +42,18 @@ private:
 
     OwnedArray<ToggleButton>  buttons;
 
+    ScopedPointer<Label> label;
+    ScopedPointer<Label> label1;
+    ScopedPointer<Label> labelToCombo;
+
     ScopedPointer<ValueTreeSliderAttachment> attachment;
     ScopedPointer<ValueTreeSliderAttachment> attachment2;
     ScopedPointer<ValueTreeComboBoxAttachment> comboAttachment;
     ScopedPointer<ValueTreeComboBoxAttachment> comboAttachment1;
     ScopedPointer<ValueTreeRadioButtonGroupAttachment> buttonGroupAttachment;
+    ScopedPointer<ValueTreeLabelAttachment> labelAttachment;
+    ScopedPointer<ValueTreeLabelAttachment> labelAttachment1;
+    ScopedPointer<ValueTreeLabelAttachment> labelToComboAttachment;
 };
 
 

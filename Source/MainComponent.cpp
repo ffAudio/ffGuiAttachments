@@ -30,6 +30,9 @@ MainContentComponent::MainContentComponent()
     option3.setProperty ("name", "Nothing", nullptr);
     select.addChild (option3, 2, nullptr);
 
+    ValueTree labelTree = tree.getOrCreateChildWithName ("Label", nullptr);
+    labelTree.setProperty ("labeltext", "test", nullptr);
+
     combo = new ComboBox();
     combo1 = new ComboBox();
 
@@ -60,6 +63,19 @@ MainContentComponent::MainContentComponent()
     btns.add (b);
     addAndMakeVisible (b);
 
+    label  = new Label();
+    label->setEditable (true);
+    label->setColour (Label::outlineColourId, Colours::lightgrey);
+    label1 = new Label();
+    label1->setColour (Label::outlineColourId, Colours::lightgrey);
+    addAndMakeVisible (label);
+    addAndMakeVisible (label1);
+
+    labelToCombo = new Label();
+    labelToCombo->setEditable (true);
+    labelToCombo->setColour (Label::outlineColourId, Colours::lightgrey);
+    addAndMakeVisible (labelToCombo);
+
     attachment = new ValueTreeSliderAttachment (tree, slider, "number");
     attachment2 = new ValueTreeSliderAttachment (tree, slider2, "number");
 
@@ -67,6 +83,11 @@ MainContentComponent::MainContentComponent()
     comboAttachment1 = new ValueTreeComboBoxAttachment (select, combo1, "name", true);
 
     buttonGroupAttachment = new ValueTreeRadioButtonGroupAttachment (select, btns, "name", true);
+
+    labelAttachment  = new ValueTreeLabelAttachment (labelTree, label, "labeltext");
+    labelAttachment1 = new ValueTreeLabelAttachment (labelTree, label1, "labeltext");
+
+    labelToComboAttachment = new ValueTreeLabelAttachment (option1, labelToCombo, "name");
 
     setSize (600, 400);
 }
@@ -95,4 +116,8 @@ void MainContentComponent::resized()
     for (int i=0; i < buttons.size(); ++i) {
         buttons.getUnchecked (i)->setBounds (160, 70 + i * 30, 150, 25);
     }
+
+    label->setBounds (330, 10, 150, 20);
+    label1->setBounds (330, 40, 150, 20);
+    labelToCombo->setBounds (330, 80, 150, 20);
 }
