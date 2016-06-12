@@ -71,6 +71,11 @@ public:
         DBG ("Debug listener attached to " + debugStringForTree(tree));
     }
 
+    ~ValueTreeDebugListener ()
+    {
+        tree.removeListener (this);
+    }
+
     void valueTreePropertyChanged (juce::ValueTree &treeWhosePropertyHasChanged, const juce::Identifier &property) override
     {
         if (includeChildren || treeWhosePropertyHasChanged == tree) {

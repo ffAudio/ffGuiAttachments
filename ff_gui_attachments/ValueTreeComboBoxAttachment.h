@@ -88,11 +88,13 @@ public:
                 tree.setProperty (property, comboBox->getSelectedId(), undoMgr);
             }
         }
-
-
-
         tree.addListener (this);
         comboBox->addListener (this);
+    }
+
+    ~ValueTreeComboBoxAttachment ()
+    {
+        tree.removeListener (this);
     }
 
     void comboBoxChanged (juce::ComboBox *comboBoxThatHasChanged) override

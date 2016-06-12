@@ -111,6 +111,11 @@ public:
         tree.addListener (this);
     }
 
+    ~ValueTreeRadioButtonGroupAttachment ()
+    {
+        tree.removeListener (this);
+    }
+
     void buttonClicked (juce::Button*) override {}
 
     void buttonStateChanged (juce::Button *buttonThatHasChanged) override
