@@ -18,6 +18,8 @@ MainContentComponent::MainContentComponent()
     tree = ValueTree ("TestTree");
     tree.setProperty ("number", 5.0, nullptr);
 
+    debugListener = new ValueTreeDebugListener (tree, true);
+
     ValueTree select = tree.getOrCreateChildWithName ("ComboBox", nullptr);
     ValueTree option1 = ValueTree ("Option");
     option1.setProperty ("name", "Anything", nullptr);

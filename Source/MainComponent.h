@@ -10,9 +10,7 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "ValueTreeSliderAttachment.h"
-#include "ValueTreeComboBoxAttachment.h"
-#include "ValueTreeRadioButtonGroupAttachment.h"
+#include "ff_gui_attachments.h"
 
 //==============================================================================
 /*
@@ -45,6 +43,8 @@ private:
     ScopedPointer<Label> label;
     ScopedPointer<Label> label1;
     ScopedPointer<Label> labelToCombo;
+
+    ScopedPointer<ValueTreeDebugListener>   debugListener;
 
     ScopedPointer<ValueTreeSliderAttachment> attachment;
     ScopedPointer<ValueTreeSliderAttachment> attachment2;
