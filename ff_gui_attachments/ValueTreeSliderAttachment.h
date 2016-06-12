@@ -88,6 +88,9 @@ public:
     ~ValueTreeSliderAttachment ()
     {
         tree.removeListener (this);
+        if (slider) {
+            slider->removeListener (this);
+        }
     }
 
     void sliderValueChanged (juce::Slider *_slider) override

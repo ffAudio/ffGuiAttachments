@@ -114,6 +114,11 @@ public:
     ~ValueTreeRadioButtonGroupAttachment ()
     {
         tree.removeListener (this);
+        for (auto b : buttons) {
+            if (b) {
+                b->removeListener (this);
+            }
+        }
     }
 
     void buttonClicked (juce::Button*) override {}

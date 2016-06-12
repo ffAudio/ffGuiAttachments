@@ -95,6 +95,9 @@ public:
     ~ValueTreeComboBoxAttachment ()
     {
         tree.removeListener (this);
+        if (comboBox) {
+            comboBox->removeListener (this);
+        }
     }
 
     void comboBoxChanged (juce::ComboBox *comboBoxThatHasChanged) override

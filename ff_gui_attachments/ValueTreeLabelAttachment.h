@@ -78,6 +78,9 @@ public:
     ~ValueTreeLabelAttachment ()
     {
         tree.removeListener (this);
+        if (label) {
+            label->removeListener (this);
+        }
     }
 
     void labelTextChanged (juce::Label *_label) override
