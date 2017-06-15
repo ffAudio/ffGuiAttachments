@@ -50,7 +50,10 @@
 #pragma once
 
 /**
- \mainpage
+ \file  ff_gui_attachments.h
+ \brief The header for the ffGuiAttachments module
+
+ \mainpage ffGuiAttachments
  
  In this module some additions to JUCE (www.juce.com) are provided to attach
  a Slider, ComboBox or RadioButtonGroup to a leaf in a ValueTree.
@@ -63,6 +66,27 @@
  They are used exatly the same as AudioProcessorValueTree::SliderAttachment.
  In the ValueTreeSliderAttachment you can also supply a range for the slider.
  
+ \code{.cpp}
+    ValueTree tree = ValueTree ("TestTree");
+    ValueTree select = tree.getOrCreateChildWithName ("ComboBox", nullptr);
+    
+    // fill ValueTree with some options
+    ValueTree option1 = ValueTree ("Option");
+    option1.setProperty ("name", "Anything", nullptr);
+    select.addChild (option1, 0, nullptr);
+    ValueTree option2 = ValueTree ("Option");
+    option2.setProperty ("name", "Something", nullptr);
+    option2.setProperty ("selected", 1, nullptr);
+    select.addChild (option2, 1, nullptr);
+    ValueTree option3 = ValueTree ("Option");
+    option3.setProperty ("name", "Nothing", nullptr);
+    select.addChild (option3, 2, nullptr);
+
+    // simply connect the combobox with the ValueTree
+    ComboBox* combo = new ComboBox();
+    ValueTreeComboBoxAttachment* comboAttachment = new ValueTreeComboBoxAttachment (select, combo, "name", true);
+ \endcode
+
  Have fun...
  Daniel
  
