@@ -45,7 +45,6 @@
 #pragma once
 
 /**
- ==============================================================================
  \class ValueTreeRadioButtonGroupAttachment
  \brief The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync
  with a leaf in a ValueTree.
@@ -53,8 +52,6 @@
  If selectSubNodes is set to true, for the selected radio button, a property 
  selected is set to 1 in the node having the same componentID as the given 
  property in the attachment.
-
- ==============================================================================
  */
 class ValueTreeRadioButtonGroupAttachment : public juce::ValueTree::Listener,
                                             public juce::Button::Listener
