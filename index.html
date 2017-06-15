@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ffGuiAttachments: Main Page</title>
+<title>ffGuiAttachments: ffGuiAttachments</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -75,17 +75,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ffGuiAttachments Documentation</div>  </div>
+<div class="title">ffGuiAttachments </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>In this module some additions to JUCE (www.juce.com) are provided to attach a Slider, ComboBox or RadioButtonGroup to a leaf in a ValueTree.This is especially useful to keep GUI components in sync with a ValueTree, e.g. th tree behind AudioProcessorValueTreeState. So you can store values that are not exposed to the host as parameters.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classValueTreeSliderAttachment.html" title="This class updates a Slider to a property in a ValueTree. ">ValueTreeSliderAttachment</a>, <a class="el" href="classValueTreeComboBoxAttachment.html" title="This attachment connects a node in a ValueTree with a combobox. ">ValueTreeComboBoxAttachment</a>, <a class="el" href="classValueTreeRadioButtonGroupAttachment.html" title="The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync with a leaf in a ValueTree...">ValueTreeRadioButtonGroupAttachment</a>, <a class="el" href="classValueTreeLabelAttachment.html" title="Connects a Label to a ValueTree node to synchronise. ">ValueTreeLabelAttachment</a></dd></dl>
 <p>They are used exatly the same as AudioProcessorValueTree::SliderAttachment. In the <a class="el" href="classValueTreeSliderAttachment.html" title="This class updates a Slider to a property in a ValueTree. ">ValueTreeSliderAttachment</a> you can also supply a range for the slider.</p>
-<p>Have fun... Daniel </p>
+<div class="fragment"><div class="line">ValueTree tree = ValueTree (<span class="stringliteral">&quot;TestTree&quot;</span>);</div>
+<div class="line">ValueTree select = tree.getOrCreateChildWithName (<span class="stringliteral">&quot;ComboBox&quot;</span>, <span class="keyword">nullptr</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// fill ValueTree with some options</span></div>
+<div class="line">ValueTree option1 = ValueTree (<span class="stringliteral">&quot;Option&quot;</span>);</div>
+<div class="line">option1.setProperty (<span class="stringliteral">&quot;name&quot;</span>, <span class="stringliteral">&quot;Anything&quot;</span>, <span class="keyword">nullptr</span>);</div>
+<div class="line">select.addChild (option1, 0, <span class="keyword">nullptr</span>);</div>
+<div class="line">ValueTree option2 = ValueTree (<span class="stringliteral">&quot;Option&quot;</span>);</div>
+<div class="line">option2.setProperty (<span class="stringliteral">&quot;name&quot;</span>, <span class="stringliteral">&quot;Something&quot;</span>, <span class="keyword">nullptr</span>);</div>
+<div class="line">option2.setProperty (<span class="stringliteral">&quot;selected&quot;</span>, 1, <span class="keyword">nullptr</span>);</div>
+<div class="line">select.addChild (option2, 1, <span class="keyword">nullptr</span>);</div>
+<div class="line">ValueTree option3 = ValueTree (<span class="stringliteral">&quot;Option&quot;</span>);</div>
+<div class="line">option3.setProperty (<span class="stringliteral">&quot;name&quot;</span>, <span class="stringliteral">&quot;Nothing&quot;</span>, <span class="keyword">nullptr</span>);</div>
+<div class="line">select.addChild (option3, 2, <span class="keyword">nullptr</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// simply connect the combobox with the ValueTree</span></div>
+<div class="line">ComboBox* combo = <span class="keyword">new</span> ComboBox();</div>
+<div class="line"><a class="code" href="classValueTreeComboBoxAttachment.html">ValueTreeComboBoxAttachment</a>* comboAttachment = <span class="keyword">new</span> <a class="code" href="classValueTreeComboBoxAttachment.html">ValueTreeComboBoxAttachment</a> (select, combo, <span class="stringliteral">&quot;name&quot;</span>, <span class="keyword">true</span>);</div>
+</div><!-- fragment --><p>Have fun... Daniel </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 15 2017 23:51:02 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 16 2017 00:07:21 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

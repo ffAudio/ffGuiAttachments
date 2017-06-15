@@ -11,7 +11,8 @@ var indexSectionsWithContent =
   1: "v",
   2: "f",
   3: "fv",
-  4: "bclsv~"
+  4: "bclsv~",
+  5: "f"
 };
 
 var indexSectionNames =
@@ -20,7 +21,8 @@ var indexSectionNames =
   1: "classes",
   2: "namespaces",
   3: "files",
-  4: "functions"
+  4: "functions",
+  5: "pages"
 };
 
 function convertToId(search)
