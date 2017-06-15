@@ -47,8 +47,7 @@
  ==============================================================================
  */
 
-#ifndef FF_GUI_ATTACHMENTS_H_INCLUDED
-#define FF_GUI_ATTACHMENTS_H_INCLUDED
+#pragma once
 
 #include <juce_core/juce_core.h>
 #include <juce_data_structures/juce_data_structures.h>
@@ -66,6 +65,4 @@ namespace FF {
 #include "ValueTreeRadioButtonGroupAttachment.h"
 #include "ValueTreeLabelAttachment.h"
 #include "ValueTreeDebugListener.h"
-
-#endif /* FF_GUI_ATTACHMENTS_H_INCLUDED */
 

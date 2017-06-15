@@ -38,20 +38,20 @@
 
     ValueTreeComboBoxAttachment.h
     Created: 4 Jun 2016 11:17:03am
-    Author:  Daniel Walz
+    Author:  Daniel Walz / Foleys Finest Audio
 
   ==============================================================================
 */
 
-#ifndef VALUETREECOMBOBOXATTACHMENT_H_INCLUDED
-#define VALUETREECOMBOBOXATTACHMENT_H_INCLUDED
+#pragma once
 
-#include "../JuceLibraryCode/JuceHeader.h"
 
 //==============================================================================
-/*
- This attachment connects a node in a ValueTree with a combobox.
- It supports two modes:
+/**
+ \class ValueTreeComboBoxAttachment
+ \brief This attachment connects a node in a ValueTree with a combobox
+ 
+ The ValueTreeComboBoxAttachment supports two modes:
  selectSubNodes == true: The Combobox is filled with the sub nodes. As combobox items the
  property is used.
 
@@ -62,6 +62,12 @@ class ValueTreeComboBoxAttachment : public juce::ComboBox::Listener,
                                     public juce::ValueTree::Listener
 {
 public:
+    /**
+     Create a ValueTreeComboBoxAttachment
+     It handles updates from a ValueTree to a ComboBox and vice versa.
+     If you set \param selectSubNodes, the ComboBox will get the child nodes as options.
+     The selected child node will get the property "selected" == 1.
+     */
     ValueTreeComboBoxAttachment (juce::ValueTree& _tree,
                                  juce::ComboBox* _comboBox,
                                  juce::Identifier _property,
@@ -100,6 +106,7 @@ public:
         }
     }
 
+    /** Updates the ValueTree's property if the ComboBox has changed */
     void comboBoxChanged (juce::ComboBox *comboBoxThatHasChanged) override
     {
         if (! updating) {
@@ -124,6 +131,7 @@ public:
         }
     }
 
+    /** Updates the ComboBox property if the ValueTree has changed */
     void valueTreePropertyChanged (juce::ValueTree &treeWhosePropertyHasChanged, const juce::Identifier &_property) override
     {
         if (! updating) {
@@ -155,12 +163,15 @@ public:
             updating = false;
         }
     }
+    
+    /** If the ValueTree has new child nodes, they will be added as options in the ComboBox */
     void valueTreeChildAdded (juce::ValueTree &parentTree, juce::ValueTree &childWhichHasBeenAdded) override
     {
         if (selectSubNodes) {
             updateChoices ();
         }
     }
+    /** If child nodes were removed from the ValueTree, the options of the ComboBox are updated */
     void valueTreeChildRemoved (juce::ValueTree &parentTree, juce::ValueTree &childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override
     {
         if (selectSubNodes) {
@@ -174,6 +185,9 @@ public:
 
 private:
 
+    /**
+     This method updates the ComboBoxes choices
+     */
     void updateChoices ()
     {
         comboBox->clear();
@@ -193,6 +207,3 @@ private:
     juce::UndoManager*                              undoMgr;
     bool                                            updating;
 };
-
-
-#endif  // VALUETREECOMBOBOXATTACHMENT_H_INCLUDED

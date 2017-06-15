@@ -6,6 +6,8 @@
   ==============================================================================
 */
 
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "ff_gui_attachments/ff_gui_attachments.h"
 #include "MainComponent.h"
 
 

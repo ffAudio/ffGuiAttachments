@@ -37,20 +37,25 @@
 
     ValueTreeSliderAttachment.h
     Created: 4 Jun 2016 11:17:03am
-    Author:  Daniel Walz
+    Author:  Daniel Walz / Foleys Finest Audio
 
   ==============================================================================
 */
 
-#ifndef VALUETREESLIDERATTACHMENT_H_INCLUDED
-#define VALUETREESLIDERATTACHMENT_H_INCLUDED
+#pragma once
 
-#include "../JuceLibraryCode/JuceHeader.h"
-
+/**
+ \class ValueTreeSliderAttachment
+ \brief This class updates a Slider to a property in a ValueTree
+ */
 class ValueTreeSliderAttachment : public juce::Slider::Listener,
                                   public juce::ValueTree::Listener
 {
 public:
+    /**
+     Creates a ValueTreeSliderAttachment. The Slider gets it's values from properties of the ValueTree node.
+     You can specify the names of the corresponding properties here.
+    */
     ValueTreeSliderAttachment (juce::ValueTree& _tree,
                                juce::Slider* _slider,
                                juce::Identifier _property,
@@ -93,6 +98,9 @@ public:
         }
     }
 
+    /**
+     This updates the ValueTree's property to reflect the Slider's position
+     */
     void sliderValueChanged (juce::Slider *_slider) override
     {
         if (! updating) {
@@ -104,6 +112,9 @@ public:
         }
     }
 
+    /**
+     This updates the Slider to reflect the ValueTree's property
+     */
     void valueTreePropertyChanged (juce::ValueTree &treeWhosePropertyHasChanged, const juce::Identifier &_property) override
     {
         if (! updating) {
@@ -139,7 +150,3 @@ private:
     juce::Identifier                            propInterval;
     bool                                        updating;
 };
-
-
-
-#endif  // VALUETREESLIDERATTACHMENT_H_INCLUDED

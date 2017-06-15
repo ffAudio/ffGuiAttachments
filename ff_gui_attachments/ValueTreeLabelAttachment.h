@@ -42,15 +42,22 @@
   ==============================================================================
 */
 
-#ifndef VALUETREELABELATTACHMENT_H_INCLUDED
-#define VALUETREELABELATTACHMENT_H_INCLUDED
+#pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+/**
+ \class ValueTreeLabelAttachment
+ \brief Connects a Label to a ValueTree node to synchronise
+ */
 class ValueTreeLabelAttachment : public juce::Label::Listener,
                                 public juce::ValueTree::Listener
 {
 public:
+    /**
+     Creates an attachment to synchronise a Label to a ValueTree node.
+     You can set a \param property, in which the text the label is showing is stored
+     */
     ValueTreeLabelAttachment (juce::ValueTree& _tree,
                                juce::Label* _label,
                                juce::Identifier _property,
@@ -83,6 +90,9 @@ public:
         }
     }
 
+    /**
+     This updates the ValueTree to the Label's text
+     */
     void labelTextChanged (juce::Label *_label) override
     {
         if (! updating) {
@@ -94,6 +104,9 @@ public:
         }
     }
 
+    /**
+     This updates the Label to display the ValueTree's property
+     */
     void valueTreePropertyChanged (juce::ValueTree &treeWhosePropertyHasChanged, const juce::Identifier &_property) override
     {
         if (! updating) {
@@ -122,6 +135,3 @@ private:
     bool                                        updating;
 };
 
-
-
-#endif  // VALUETREELABELATTACHMENT_H_INCLUDED

@@ -37,16 +37,12 @@
 
     ValueTreeDebugListener.h
     Created: 12 Jun 2016 11:17:03am
-    Author:  Daniel Walz
+    Author:  Daniel Walz / Foleys Finest Audio
 
   ==============================================================================
 */
 
-#ifndef VALUETREEDEBUGLISTENER_H_INCLUDED
-#define VALUETREEDEBUGLISTENER_H_INCLUDED
-
-#include "../JuceLibraryCode/JuceHeader.h"
-
+#pragma once
 
 /**
  To debug the callbacks of a ValueTree::Listener simply attach a ValueTreeDebugListener to the tree and see 
@@ -162,7 +158,3 @@ private:
     bool            includeChildren;
     int             dumpTreeLevel;
 };
-
-
-
-#endif  // VALUETREEDEBUGLISTENER_H_INCLUDED

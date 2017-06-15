@@ -37,22 +37,19 @@
 
     ValueTreeRadioButtonGroupAttachment.h
     Created: 4 Jun 2016 5:00:44pm
-    Author:  Daniel Walz
+    Author:  Daniel Walz / Foleys Finest Audio
 
   ==============================================================================
 */
 
-#ifndef VALUETREERADIOBUTTONGROUPATTACHMENT_H_INCLUDED
-#define VALUETREERADIOBUTTONGROUPATTACHMENT_H_INCLUDED
+#pragma once
 
-#include "../JuceLibraryCode/JuceHeader.h"
-
-
-/*
+/**
  ==============================================================================
-
- The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync 
+ \class ValueTreeRadioButtonGroupAttachment
+ \brief The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync
  with a leaf in a ValueTree.
+ 
  If selectSubNodes is set to true, for the selected radio button, a property 
  selected is set to 1 in the node having the same componentID as the given 
  property in the attachment.
@@ -63,6 +60,12 @@ class ValueTreeRadioButtonGroupAttachment : public juce::ValueTree::Listener,
                                             public juce::Button::Listener
 {
 public:
+    /**
+     Create a ValueTreeRadioButtonGroupAttachment
+     It handles updates from a ValueTree to a RadioButtonGroup and vice versa.
+     If you set \param selectSubNodes, the selected child node corresponding to
+     the Button with the same ComponentID will get the property "selected" == 1.
+     */
     ValueTreeRadioButtonGroupAttachment (juce::ValueTree& _tree,
                                          juce::Array<juce::Button*>& _buttons,
                                          juce::Identifier _property,
@@ -192,6 +195,3 @@ private:
     bool updating;
 
 };
-
-
-#endif  // VALUETREERADIOBUTTONGROUPATTACHMENT_H_INCLUDED

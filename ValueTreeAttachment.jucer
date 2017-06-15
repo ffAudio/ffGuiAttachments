@@ -2,7 +2,8 @@
 
 <JUCERPROJECT id="qAWDnN" name="ValueTreeAttachment" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.ValueTreeAttachment" includeBinaryInAppConfig="1"
-              jucerVersion="4.2.1">
+              jucerVersion="5.0.2" displaySplashScreen="0" reportAppUsage="1"
+              splashScreenColour="Dark">
   <MAINGROUP id="V1CTti" name="ValueTreeAttachment">
     <GROUP id="{5D93FF2E-D183-EF37-B0AF-C2C041BF63C9}" name="Source">
       <FILE id="izIWSJ" name="MainComponent.cpp" compile="1" resource="0"
@@ -26,18 +27,18 @@
         <MODULEPATH id="juce_data_structures" path="../../../juce/JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../../../juce/JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../juce/JUCE/modules"/>
-        <MODULEPATH id="ff_gui_attachments" path="../ff_gui_attachments"/>
+        <MODULEPATH id="ff_gui_attachments" path="."/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="ff_gui_attachments" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="ff_gui_attachments" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <JUCEOPTIONS/>
 </JUCERPROJECT>
