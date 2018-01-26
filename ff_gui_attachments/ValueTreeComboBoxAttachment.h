@@ -50,12 +50,12 @@
 /**
  \class ValueTreeComboBoxAttachment
  \brief This attachment connects a node in a ValueTree with a combobox
- 
+
  The ValueTreeComboBoxAttachment supports two modes:
  selectSubNodes == true: The Combobox is filled with the sub nodes. As combobox items the
  property is used.
 
- selectSubNodes == false: The combobox has already it's items and the selected index 
+ selectSubNodes == false: The combobox has already it's items and the selected index
  is stored in the property.
  */
 class ValueTreeComboBoxAttachment : public juce::ComboBox::Listener,
@@ -124,7 +124,7 @@ public:
                     }
                 }
                 else {
-                    tree.setProperty (property, comboBox->getSelectedItemIndex (), undoMgr);
+                    tree.setProperty (property, comboBox->getSelectedId(), undoMgr);
                 }
             }
             updating = false;
@@ -163,7 +163,7 @@ public:
             updating = false;
         }
     }
-    
+
     /** If the ValueTree has new child nodes, they will be added as options in the ComboBox */
     void valueTreeChildAdded (juce::ValueTree &parentTree, juce::ValueTree &childWhichHasBeenAdded) override
     {
