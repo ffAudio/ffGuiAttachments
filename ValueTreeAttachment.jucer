@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="qAWDnN" name="ValueTreeAttachment" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.ValueTreeAttachment" includeBinaryInAppConfig="1"
-              jucerVersion="5.0.2" displaySplashScreen="0" reportAppUsage="1"
+              jucerVersion="5.2.0" displaySplashScreen="0" reportAppUsage="1"
               splashScreenColour="Dark">
   <MAINGROUP id="V1CTti" name="ValueTreeAttachment">
     <GROUP id="{5D93FF2E-D183-EF37-B0AF-C2C041BF63C9}" name="Source">

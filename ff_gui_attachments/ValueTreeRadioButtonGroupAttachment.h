@@ -63,15 +63,15 @@ public:
      If you set \param selectSubNodes, the selected child node corresponding to
      the Button with the same ComponentID will get the property "selected" == 1.
      */
-    ValueTreeRadioButtonGroupAttachment (juce::ValueTree& _tree,
+    ValueTreeRadioButtonGroupAttachment (juce::ValueTree& attachToTree,
                                          juce::Array<juce::Button*>& _buttons,
-                                         juce::Identifier _property,
-                                         bool _selectSubNodes,
-                                         juce::UndoManager* _undoMgr = nullptr)
-    :   tree (_tree),
-        property (_property),
-        selectSubNodes (_selectSubNodes),
-        undoMgr (_undoMgr),
+                                         juce::Identifier indexProperty,
+                                         bool shouldSelectSubNodes,
+                                         juce::UndoManager* undoManagerToUse = nullptr)
+    :   tree (attachToTree),
+        property (indexProperty),
+        selectSubNodes (shouldSelectSubNodes),
+        undoMgr (undoManagerToUse),
         updating (false)
     {
 
@@ -184,11 +184,11 @@ public:
     void valueTreeRedirected (juce::ValueTree &treeWhichHasBeenChanged) override {}
 
 private:
-    juce::ValueTree tree;
+    juce::ValueTree    tree;
     juce::Array<juce::Component::SafePointer<juce::Button> > buttons;
-    juce::Identifier property;
-    bool selectSubNodes;
-    juce::UndoManager* undoMgr;
-    bool updating;
+    juce::Identifier   property;
+    bool               selectSubNodes;
+    juce::UndoManager* undoMgr  = nullptr;
+    bool               updating = false;;
 
 };

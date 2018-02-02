@@ -35,7 +35,7 @@
  
  ID:            ff_gui_attachments
  vendor:        Foleys Finest Audio UG
- version:       0.9.1
+ version:       0.9.2
  name:          Attachment classes to connect ValueTree and GUI components
  description:   helpers to get geometric information about channels
  dependencies:  juce_core, juce_gui_basics, juce_data_structures

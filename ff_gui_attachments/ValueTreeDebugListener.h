@@ -56,15 +56,15 @@ public:
      If you want to see callbacks from child trees too set @param includeChildren to true.
      @param dumpTreeLevel is not yet implemented.
      */
-    ValueTreeDebugListener (juce::ValueTree& _tree, int _includeChildren=false, const int _dumpTreeLevel=0)
-      : tree (_tree),
-        includeChildren (_includeChildren),
-        dumpTreeLevel (_dumpTreeLevel)
+    ValueTreeDebugListener (juce::ValueTree& treeToWatch, int shouldIncludeChildren=false, const int requestedDumpTreeLevel=0)
+      : tree (treeToWatch),
+        includeChildren (shouldIncludeChildren),
+        dumpTreeLevel (requestedDumpTreeLevel)
     {
         // Don't attach an invalid valuetree!
         jassert (tree.isValid());
         tree.addListener (this);
-        DBG ("Debug listener attached to " + debugStringForTree(tree));
+        DBG ("Debug listener attached to " + debugStringForTree (tree));
     }
 
     ~ValueTreeDebugListener ()
@@ -121,28 +121,28 @@ public:
 private:
 
     /** returns a descriptive string for _tree */
-    juce::String debugStringForTree (juce::ValueTree& _tree) const
+    juce::String debugStringForTree (juce::ValueTree& debuggedTree) const
     {
-        if (_tree == tree) {
-            return juce::String ("ValueTree <" + _tree.getType().toString() + ">");
+        if (debuggedTree == tree) {
+            return juce::String ("ValueTree <" + debuggedTree.getType().toString() + ">");
         }
         else {
-            int level = getChildOrder (_tree);
+            int level = getChildOrder (debuggedTree);
             if (level < 0) {
-                return juce::String ("ValueTree <" + _tree.getType().toString() + "> no child of watched tree");
+                return juce::String ("ValueTree <" + debuggedTree.getType().toString() + "> no child of watched tree");
             }
             else {
-                return juce::String ("ValueTree <" + _tree.getType().toString() + "> child level " + juce::String (level));
+                return juce::String ("ValueTree <" + debuggedTree.getType().toString() + "> child level " + juce::String (level));
             }
         }
     }
 
     /** returns the level from _tree to watched tree */
-    int getChildOrder (juce::ValueTree& _tree) const
+    int getChildOrder (juce::ValueTree& debuggedTree) const
     {
-        if (_tree.isAChildOf(tree)) {
+        if (debuggedTree.isAChildOf(tree)) {
             int level = 0;
-            juce::ValueTree seeker = _tree;
+            juce::ValueTree seeker = debuggedTree;
             while (seeker.isValid()) {
                 if (seeker == tree) {
                     return level;

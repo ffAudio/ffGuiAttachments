@@ -58,18 +58,18 @@ public:
      Creates an attachment to synchronise a Label to a ValueTree node.
      You can set a \param property, in which the text the label is showing is stored
      */
-    ValueTreeLabelAttachment (juce::ValueTree& _tree,
-                               juce::Label* _label,
-                               juce::Identifier _property,
-                               juce::UndoManager* _undoMgr = nullptr)
-    :   tree (_tree),
-        property (_property),
-        undoMgr (_undoMgr),
+    ValueTreeLabelAttachment (juce::ValueTree& attachToTree,
+                               juce::Label* attachToLabel,
+                               juce::Identifier textProperty,
+                               juce::UndoManager* undoManagerToUse = nullptr)
+    :   tree (attachToTree),
+        property (textProperty),
+        undoMgr (undoManagerToUse),
         updating (false)
     {
         // Don't attach an invalid valuetree!
         jassert (tree.isValid());
-        label = _label;
+        label = attachToLabel;
 
         if (tree.hasProperty (property)) {
             label->setText (tree.getProperty(property), juce::dontSendNotification);
@@ -131,7 +131,7 @@ private:
     juce::ValueTree                             tree;
     juce::Component::SafePointer<juce::Label>   label;
     juce::Identifier                            property;
-    juce::UndoManager*                          undoMgr;
-    bool                                        updating;
+    juce::UndoManager*                          undoMgr  = nullptr;
+    bool                                        updating = false;
 };
 
