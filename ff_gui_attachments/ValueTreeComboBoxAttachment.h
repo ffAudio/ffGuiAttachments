@@ -88,10 +88,10 @@ public:
         }
         else {
             if (tree.hasProperty (property)) {
-                comboBox->setSelectedId (tree.getProperty(property));
+                comboBox->setSelectedItemIndex (tree.getProperty(property));
             }
             else {
-                tree.setProperty (property, comboBox->getSelectedId(), undoMgr);
+                tree.setProperty (property, comboBox->getSelectedItemIndex(), undoMgr);
             }
         }
         tree.addListener (this);
