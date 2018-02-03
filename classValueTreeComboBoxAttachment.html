@@ -105,17 +105,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa5fd8cca723cd5f368ecf25020db77bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeComboBoxAttachment.html#aa5fd8cca723cd5f368ecf25020db77bc">ValueTreeComboBoxAttachment</a> (juce::ValueTree &amp;_tree, juce::ComboBox *_comboBox, juce::Identifier _property, bool _selectSubNodes, juce::UndoManager *_undoMgr=nullptr)</td></tr>
-<tr class="memdesc:aa5fd8cca723cd5f368ecf25020db77bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="classValueTreeComboBoxAttachment.html" title="This attachment connects a node in a ValueTree with a combobox. ">ValueTreeComboBoxAttachment</a> It handles updates from a ValueTree to a ComboBox and vice versa.  <a href="#aa5fd8cca723cd5f368ecf25020db77bc">More...</a><br/></td></tr>
-<tr class="separator:aa5fd8cca723cd5f368ecf25020db77bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b9d78648385c93f5b0d49c72651c7cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeComboBoxAttachment.html#a2b9d78648385c93f5b0d49c72651c7cf">ValueTreeComboBoxAttachment</a> (juce::ValueTree &amp;attachToTree, juce::ComboBox *comboBoxToAttach, juce::Identifier indexProperty, bool shouldSelectSubNodes, juce::UndoManager *undoManagerToUse=nullptr)</td></tr>
+<tr class="memdesc:a2b9d78648385c93f5b0d49c72651c7cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="classValueTreeComboBoxAttachment.html" title="This attachment connects a node in a ValueTree with a combobox. ">ValueTreeComboBoxAttachment</a> It handles updates from a ValueTree to a ComboBox and vice versa.  <a href="#a2b9d78648385c93f5b0d49c72651c7cf">More...</a><br/></td></tr>
+<tr class="separator:a2b9d78648385c93f5b0d49c72651c7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74df0b5ade11d562392fc1550b22397e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeComboBoxAttachment.html#a74df0b5ade11d562392fc1550b22397e">~ValueTreeComboBoxAttachment</a> ()</td></tr>
 <tr class="separator:a74df0b5ade11d562392fc1550b22397e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dc49e0300c749222ab485ccb9825fcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeComboBoxAttachment.html#a6dc49e0300c749222ab485ccb9825fcd">comboBoxChanged</a> (juce::ComboBox *comboBoxThatHasChanged) override</td></tr>
 <tr class="memdesc:a6dc49e0300c749222ab485ccb9825fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the ValueTree's property if the ComboBox has changed.  <a href="#a6dc49e0300c749222ab485ccb9825fcd">More...</a><br/></td></tr>
 <tr class="separator:a6dc49e0300c749222ab485ccb9825fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8885672510692518288f7b1236f9b39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeComboBoxAttachment.html#ad8885672510692518288f7b1236f9b39">valueTreePropertyChanged</a> (juce::ValueTree &amp;treeWhosePropertyHasChanged, const juce::Identifier &amp;_property) override</td></tr>
-<tr class="memdesc:ad8885672510692518288f7b1236f9b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the ComboBox property if the ValueTree has changed.  <a href="#ad8885672510692518288f7b1236f9b39">More...</a><br/></td></tr>
-<tr class="separator:ad8885672510692518288f7b1236f9b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5bca08810cc5320b1e763970225f0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeComboBoxAttachment.html#a0a5bca08810cc5320b1e763970225f0b">valueTreePropertyChanged</a> (juce::ValueTree &amp;treeWhosePropertyHasChanged, const juce::Identifier &amp;changedProperty) override</td></tr>
+<tr class="memdesc:a0a5bca08810cc5320b1e763970225f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the ComboBox property if the ValueTree has changed.  <a href="#a0a5bca08810cc5320b1e763970225f0b">More...</a><br/></td></tr>
+<tr class="separator:a0a5bca08810cc5320b1e763970225f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac57076619b82f6bc08a5bbc8d37129a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeComboBoxAttachment.html#ac57076619b82f6bc08a5bbc8d37129a9">valueTreeChildAdded</a> (juce::ValueTree &amp;parentTree, juce::ValueTree &amp;childWhichHasBeenAdded) override</td></tr>
 <tr class="memdesc:ac57076619b82f6bc08a5bbc8d37129a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the ValueTree has new child nodes, they will be added as options in the ComboBox.  <a href="#ac57076619b82f6bc08a5bbc8d37129a9">More...</a><br/></td></tr>
 <tr class="separator:ac57076619b82f6bc08a5bbc8d37129a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,7 +134,7 @@ Public Member Functions</h2></td></tr>
 <p>The <a class="el" href="classValueTreeComboBoxAttachment.html" title="This attachment connects a node in a ValueTree with a combobox. ">ValueTreeComboBoxAttachment</a> supports two modes: selectSubNodes == true: The Combobox is filled with the sub nodes. As combobox items the property is used.</p>
 <p>selectSubNodes == false: The combobox has already it's items and the selected index is stored in the property. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa5fd8cca723cd5f368ecf25020db77bc"></a>
+<a class="anchor" id="a2b9d78648385c93f5b0d49c72651c7cf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -142,31 +142,31 @@ Public Member Functions</h2></td></tr>
           <td class="memname">ValueTreeComboBoxAttachment::ValueTreeComboBoxAttachment </td>
           <td>(</td>
           <td class="paramtype">juce::ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>_tree</em>, </td>
+          <td class="paramname"><em>attachToTree</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::ComboBox *&#160;</td>
-          <td class="paramname"><em>_comboBox</em>, </td>
+          <td class="paramname"><em>comboBoxToAttach</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::Identifier&#160;</td>
-          <td class="paramname"><em>_property</em>, </td>
+          <td class="paramname"><em>indexProperty</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_selectSubNodes</em>, </td>
+          <td class="paramname"><em>shouldSelectSubNodes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::UndoManager *&#160;</td>
-          <td class="paramname"><em>_undoMgr</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramname"><em>undoManagerToUse</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -229,7 +229,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad8885672510692518288f7b1236f9b39"></a>
+<a class="anchor" id="a0a5bca08810cc5320b1e763970225f0b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -246,7 +246,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const juce::Identifier &amp;&#160;</td>
-          <td class="paramname"><em>_property</em>&#160;</td>
+          <td class="paramname"><em>changedProperty</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -437,7 +437,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 29 2017 16:55:40 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 3 2018 01:00:06 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

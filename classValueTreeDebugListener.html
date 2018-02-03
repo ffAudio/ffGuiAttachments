@@ -105,9 +105,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af845e13953d49690e29cf178110aff74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeDebugListener.html#af845e13953d49690e29cf178110aff74">ValueTreeDebugListener</a> (juce::ValueTree &amp;_tree, int _includeChildren=false, const int _dumpTreeLevel=0)</td></tr>
-<tr class="memdesc:af845e13953d49690e29cf178110aff74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Debug listener to write callbacks to DBG.  <a href="#af845e13953d49690e29cf178110aff74">More...</a><br/></td></tr>
-<tr class="separator:af845e13953d49690e29cf178110aff74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124fa31a6fc075382f5c953072b36a9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeDebugListener.html#a124fa31a6fc075382f5c953072b36a9e">ValueTreeDebugListener</a> (juce::ValueTree &amp;treeToWatch, int shouldIncludeChildren=false, const int requestedDumpTreeLevel=0)</td></tr>
+<tr class="memdesc:a124fa31a6fc075382f5c953072b36a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Debug listener to write callbacks to DBG.  <a href="#a124fa31a6fc075382f5c953072b36a9e">More...</a><br/></td></tr>
+<tr class="separator:a124fa31a6fc075382f5c953072b36a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedb95f9fa7ae10cfedefc422c49de96f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeDebugListener.html#aedb95f9fa7ae10cfedefc422c49de96f">~ValueTreeDebugListener</a> ()</td></tr>
 <tr class="separator:aedb95f9fa7ae10cfedefc422c49de96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a536c716faca8c698a503b7c7227a3e9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeDebugListener.html#a536c716faca8c698a503b7c7227a3e9e">valueTreePropertyChanged</a> (juce::ValueTree &amp;treeWhosePropertyHasChanged, const juce::Identifier &amp;property) override</td></tr>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>To debug the callbacks of a ValueTree::Listener simply attach a <a class="el" href="classValueTreeDebugListener.html" title="To debug the callbacks of a ValueTree::Listener simply attach a ValueTreeDebugListener to the tree an...">ValueTreeDebugListener</a> to the tree and see debug information in the console. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af845e13953d49690e29cf178110aff74"></a>
+<a class="anchor" id="a124fa31a6fc075382f5c953072b36a9e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -134,19 +134,19 @@ Public Member Functions</h2></td></tr>
           <td class="memname">ValueTreeDebugListener::ValueTreeDebugListener </td>
           <td>(</td>
           <td class="paramtype">juce::ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>_tree</em>, </td>
+          <td class="paramname"><em>treeToWatch</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>_includeChildren</em> = <code>false</code>, </td>
+          <td class="paramname"><em>shouldIncludeChildren</em> = <code>false</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>_dumpTreeLevel</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>requestedDumpTreeLevel</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -386,7 +386,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 29 2017 16:55:40 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 3 2018 01:00:06 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

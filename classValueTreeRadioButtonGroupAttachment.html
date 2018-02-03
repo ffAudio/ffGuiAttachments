@@ -105,9 +105,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa162860a4e1f0b466dd18e02dbb9dc09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeRadioButtonGroupAttachment.html#aa162860a4e1f0b466dd18e02dbb9dc09">ValueTreeRadioButtonGroupAttachment</a> (juce::ValueTree &amp;_tree, juce::Array&lt; juce::Button * &gt; &amp;_buttons, juce::Identifier _property, bool _selectSubNodes, juce::UndoManager *_undoMgr=nullptr)</td></tr>
-<tr class="memdesc:aa162860a4e1f0b466dd18e02dbb9dc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="classValueTreeRadioButtonGroupAttachment.html" title="The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync with a leaf in a ValueTree...">ValueTreeRadioButtonGroupAttachment</a> It handles updates from a ValueTree to a RadioButtonGroup and vice versa.  <a href="#aa162860a4e1f0b466dd18e02dbb9dc09">More...</a><br/></td></tr>
-<tr class="separator:aa162860a4e1f0b466dd18e02dbb9dc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a950c12bc600acb926d5831f566f764cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeRadioButtonGroupAttachment.html#a950c12bc600acb926d5831f566f764cf">ValueTreeRadioButtonGroupAttachment</a> (juce::ValueTree &amp;attachToTree, juce::Array&lt; juce::Button * &gt; &amp;_buttons, juce::Identifier indexProperty, bool shouldSelectSubNodes, juce::UndoManager *undoManagerToUse=nullptr)</td></tr>
+<tr class="memdesc:a950c12bc600acb926d5831f566f764cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="classValueTreeRadioButtonGroupAttachment.html" title="The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync with a leaf in a ValueTree...">ValueTreeRadioButtonGroupAttachment</a> It handles updates from a ValueTree to a RadioButtonGroup and vice versa.  <a href="#a950c12bc600acb926d5831f566f764cf">More...</a><br/></td></tr>
+<tr class="separator:a950c12bc600acb926d5831f566f764cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35e2a594b636ae14010144d0bc652f16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeRadioButtonGroupAttachment.html#a35e2a594b636ae14010144d0bc652f16">~ValueTreeRadioButtonGroupAttachment</a> ()</td></tr>
 <tr class="separator:a35e2a594b636ae14010144d0bc652f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43a539f5af8b212895d372ba7296522f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeRadioButtonGroupAttachment.html#a43a539f5af8b212895d372ba7296522f">buttonClicked</a> (juce::Button *) override</td></tr>
@@ -131,7 +131,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The <a class="el" href="classValueTreeRadioButtonGroupAttachment.html" title="The ValueTreeRadioButtonGroupAttachment keeps a radio button group in sync with a leaf in a ValueTree...">ValueTreeRadioButtonGroupAttachment</a> keeps a radio button group in sync with a leaf in a ValueTree. </p>
 <p>If selectSubNodes is set to true, for the selected radio button, a property selected is set to 1 in the node having the same componentID as the given property in the attachment. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa162860a4e1f0b466dd18e02dbb9dc09"></a>
+<a class="anchor" id="a950c12bc600acb926d5831f566f764cf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -139,7 +139,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">ValueTreeRadioButtonGroupAttachment::ValueTreeRadioButtonGroupAttachment </td>
           <td>(</td>
           <td class="paramtype">juce::ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>_tree</em>, </td>
+          <td class="paramname"><em>attachToTree</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -151,19 +151,19 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::Identifier&#160;</td>
-          <td class="paramname"><em>_property</em>, </td>
+          <td class="paramname"><em>indexProperty</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_selectSubNodes</em>, </td>
+          <td class="paramname"><em>shouldSelectSubNodes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::UndoManager *&#160;</td>
-          <td class="paramname"><em>_undoMgr</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramname"><em>undoManagerToUse</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -450,7 +450,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 29 2017 16:55:40 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 3 2018 01:00:06 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -105,17 +105,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abb77ccb2b2b5910768860be65fff851f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#abb77ccb2b2b5910768860be65fff851f">ValueTreeSliderAttachment</a> (juce::ValueTree &amp;_tree, juce::Slider *_slider, juce::Identifier _property, juce::UndoManager *_undoMgr=nullptr, juce::Identifier _propMinimum=FF::propMinimumDefault, juce::Identifier _propMaximum=FF::propMaximumDefault, juce::Identifier _propInterval=FF::propIntervalDefault)</td></tr>
-<tr class="memdesc:abb77ccb2b2b5910768860be65fff851f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classValueTreeSliderAttachment.html" title="This class updates a Slider to a property in a ValueTree. ">ValueTreeSliderAttachment</a>.  <a href="#abb77ccb2b2b5910768860be65fff851f">More...</a><br/></td></tr>
-<tr class="separator:abb77ccb2b2b5910768860be65fff851f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c8fa9a9f2cb2170c7b91bf33f4785b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#ab9c8fa9a9f2cb2170c7b91bf33f4785b">ValueTreeSliderAttachment</a> (juce::ValueTree &amp;attachToTree, juce::Slider *_slider, juce::Identifier valueProperty, juce::UndoManager *undoManagerToUse=nullptr, juce::Identifier propertyForMinimum=FF::propMinimumDefault, juce::Identifier propertyForMaximum=FF::propMaximumDefault, juce::Identifier propertyForInterval=FF::propIntervalDefault)</td></tr>
+<tr class="memdesc:ab9c8fa9a9f2cb2170c7b91bf33f4785b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classValueTreeSliderAttachment.html" title="This class updates a Slider to a property in a ValueTree. ">ValueTreeSliderAttachment</a>.  <a href="#ab9c8fa9a9f2cb2170c7b91bf33f4785b">More...</a><br/></td></tr>
+<tr class="separator:ab9c8fa9a9f2cb2170c7b91bf33f4785b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c029ab8d225d82895b55789dda4334e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#a5c029ab8d225d82895b55789dda4334e">~ValueTreeSliderAttachment</a> ()</td></tr>
 <tr class="separator:a5c029ab8d225d82895b55789dda4334e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cdc7f634754a1b3aff4c8874cc5f88f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#a8cdc7f634754a1b3aff4c8874cc5f88f">sliderValueChanged</a> (juce::Slider *_slider) override</td></tr>
-<tr class="memdesc:a8cdc7f634754a1b3aff4c8874cc5f88f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This updates the ValueTree's property to reflect the Slider's position.  <a href="#a8cdc7f634754a1b3aff4c8874cc5f88f">More...</a><br/></td></tr>
-<tr class="separator:a8cdc7f634754a1b3aff4c8874cc5f88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45d1f1064b765429ab7300fd48978acf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#a45d1f1064b765429ab7300fd48978acf">valueTreePropertyChanged</a> (juce::ValueTree &amp;treeWhosePropertyHasChanged, const juce::Identifier &amp;_property) override</td></tr>
-<tr class="memdesc:a45d1f1064b765429ab7300fd48978acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This updates the Slider to reflect the ValueTree's property.  <a href="#a45d1f1064b765429ab7300fd48978acf">More...</a><br/></td></tr>
-<tr class="separator:a45d1f1064b765429ab7300fd48978acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560b59a95619359add12e38467eb5da2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#a560b59a95619359add12e38467eb5da2">sliderValueChanged</a> (juce::Slider *sliderThatChanged) override</td></tr>
+<tr class="memdesc:a560b59a95619359add12e38467eb5da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This updates the ValueTree's property to reflect the Slider's position.  <a href="#a560b59a95619359add12e38467eb5da2">More...</a><br/></td></tr>
+<tr class="separator:a560b59a95619359add12e38467eb5da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19134b3f88bd4eddc1ab7101c5c89da6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#a19134b3f88bd4eddc1ab7101c5c89da6">valueTreePropertyChanged</a> (juce::ValueTree &amp;treeWhosePropertyHasChanged, const juce::Identifier &amp;changedProperty) override</td></tr>
+<tr class="memdesc:a19134b3f88bd4eddc1ab7101c5c89da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This updates the Slider to reflect the ValueTree's property.  <a href="#a19134b3f88bd4eddc1ab7101c5c89da6">More...</a><br/></td></tr>
+<tr class="separator:a19134b3f88bd4eddc1ab7101c5c89da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9e814aececb988e52c60057abdb1170"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#ae9e814aececb988e52c60057abdb1170">valueTreeChildAdded</a> (juce::ValueTree &amp;parentTree, juce::ValueTree &amp;childWhichHasBeenAdded) override</td></tr>
 <tr class="separator:ae9e814aececb988e52c60057abdb1170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaecec050bcf70cfa81f3aed3995230b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classValueTreeSliderAttachment.html#aaecec050bcf70cfa81f3aed3995230b7">valueTreeChildRemoved</a> (juce::ValueTree &amp;parentTree, juce::ValueTree &amp;childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override</td></tr>
@@ -130,7 +130,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class updates a Slider to a property in a ValueTree. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="abb77ccb2b2b5910768860be65fff851f"></a>
+<a class="anchor" id="ab9c8fa9a9f2cb2170c7b91bf33f4785b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -138,7 +138,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">ValueTreeSliderAttachment::ValueTreeSliderAttachment </td>
           <td>(</td>
           <td class="paramtype">juce::ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>_tree</em>, </td>
+          <td class="paramname"><em>attachToTree</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -150,31 +150,31 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::Identifier&#160;</td>
-          <td class="paramname"><em>_property</em>, </td>
+          <td class="paramname"><em>valueProperty</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::UndoManager *&#160;</td>
-          <td class="paramname"><em>_undoMgr</em> = <code>nullptr</code>, </td>
+          <td class="paramname"><em>undoManagerToUse</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::Identifier&#160;</td>
-          <td class="paramname"><em>_propMinimum</em> = <code>FF::propMinimumDefault</code>, </td>
+          <td class="paramname"><em>propertyForMinimum</em> = <code>FF::propMinimumDefault</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::Identifier&#160;</td>
-          <td class="paramname"><em>_propMaximum</em> = <code>FF::propMaximumDefault</code>, </td>
+          <td class="paramname"><em>propertyForMaximum</em> = <code>FF::propMaximumDefault</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::Identifier&#160;</td>
-          <td class="paramname"><em>_propInterval</em> = <code>FF::propIntervalDefault</code>&#160;</td>
+          <td class="paramname"><em>propertyForInterval</em> = <code>FF::propIntervalDefault</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -205,7 +205,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a8cdc7f634754a1b3aff4c8874cc5f88f"></a>
+<a class="anchor" id="a560b59a95619359add12e38467eb5da2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -216,7 +216,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void ValueTreeSliderAttachment::sliderValueChanged </td>
           <td>(</td>
           <td class="paramtype">juce::Slider *&#160;</td>
-          <td class="paramname"><em>_slider</em></td><td>)</td>
+          <td class="paramname"><em>sliderThatChanged</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -231,7 +231,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a45d1f1064b765429ab7300fd48978acf"></a>
+<a class="anchor" id="a19134b3f88bd4eddc1ab7101c5c89da6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -248,7 +248,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const juce::Identifier &amp;&#160;</td>
-          <td class="paramname"><em>_property</em>&#160;</td>
+          <td class="paramname"><em>changedProperty</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -435,7 +435,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 29 2017 16:55:40 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 3 2018 01:00:06 for ffGuiAttachments by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
